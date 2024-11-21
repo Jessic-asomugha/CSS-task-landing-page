@@ -1,5 +1,5 @@
 # CSS-task-landing-page
-# Luxury Jewelry Landing Page
+# This is a landing page for my jewelry website
 
 This is a simple landing page for a luxury jewelry store, showcasing collections and testimonials. The page utilizes a combination of **Tailwind CSS** and **Bootstrap** for styling and functionality.
 
@@ -44,4 +44,4 @@ Bootstrap is used for:
 
 1. Clone this repository:
    ```bash
-   git clone
+   git clone https://github.com/Jessic-asomugha/CSS-task-landing-page/tree/main
