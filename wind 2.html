@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid vs Flexbox</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Flexbox Row Example Styles */
+        .flex-container-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .flex-item {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            flex: 1;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Flexbox Column Example Styles */
+        .flex-container-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffe0b3;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Flexbox Wrap Row Example Styles */
+        .flex-container-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #e0f7fa;
+            padding: 20px;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .flex-item-wrap {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            flex: 1 1 150px; /* Flex-basis of 150px, will grow or shrink as needed */
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Grid Example Styles */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background-color: #ddd;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .grid-item {
+            background-color: #2196F3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Grid Span Example Styles */
+        .grid-container-span {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background-color: #e8eaf6;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .grid-item-span {
+            background-color: #3f51b5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+ 
+         .grid-item-span-row {
+            grid-column: span 2;
+            grid-row: span 1;
+            background-color: #ef2068;
+        } 
+ 
+        .grid-item-span-column{
+            grid-column: span 1;
+            grid-row: span 2;
+            background-color: #673ab7;
+        }
+
+        .grid-item-span-both{
+            grid-column: span 2;
+            grid-row: span 2;
+            background-color: #4842fb;
+        } 
+    </style>
+</head>
+<body>
+
+    <h1>CSS Grid vs Flexbox</h1>
+
+    <p>
+        CSS Grid and Flexbox are both powerful layout systems in CSS, each with its own strengths. Flexbox is designed for one-dimensional layouts, handling either rows or columns, making it ideal for arranging items in a single direction. On the other hand, CSS Grid is built for two-dimensional layouts, allowing you to control both rows and columns simultaneously, which is perfect for more complex and responsive designs.
+    </p>
+
+    <h2>Flexbox</h2>
+    <p>As mentioned earlier flexbox is a CSS layout feature that is one dimesional which implies that it only allows you to make adjustments to the content either by row or column observe nelow a practical use of the flexbox feature</p>
+    <h3>Flexbox Row Example</h3>
+    <div class="flex-container-row">
+        <div class="flex-item">Flex Item 1</div>
+        <div class="flex-item">Flex Item 2</div>
+        <div class="flex-item">Flex Item 3</div>
+    </div>
+
+    <h3>Flexbox Column Example</h3>
+    <div class="flex-container-column">
+        <div class="flex-item">Flex Item 1</div>
+        <div class="flex-item">Flex Item 2</div>
+        <div class="flex-item">Flex Item 3</div>
+    </div>
+
+<p>Another property of the flexbox feature is its ability to "Wrap" this means that if there are more contents than the initial row could handle the item is moved to the next line and fills the most available space, observe from the example as shown below</p>
+    <h2>Flexbox Wrap Row Example</h2>
+    <div class="flex-container-wrap">
+        <div class="flex-item-wrap">Flex Item 1</div>
+        <div class="flex-item-wrap">Flex Item 2</div>
+        <div class="flex-item-wrap">Flex Item 3</div>
+        <div class="flex-item-wrap">Flex Item 4</div>
+        <div class="flex-item-wrap">Flex Item 5</div>
+        <div class="flex-item-wrap">Flex Item 6</div>
+    </div>
+
+    <h2>Grid</h2>
+    <p>We have dealt with the flexbox, now let's talk about grid. CSS grid is a 2 dimensional layout feature whic simply means you can manipulate both rows and colums simultaneously. Let's take a look at a practical example below</p>
+    <div class="grid-container">
+        <div class="grid-item">Grid Item 1</div>
+        <div class="grid-item">Grid Item 2</div>
+        <div class="grid-item">Grid Item 3</div>
+        <div class="grid-item">Grid Item 4</div>
+        <div class="grid-item">Grid Item 5</div>
+        <div class="grid-item">Grid Item 6</div>
+    </div>
+
+    <p>Contrary to the flexbox feature, grid places it's items on a 2D plain x and y axis at the same time as you can clearly see from the example above</p>
+
+    <h2>Grid and item overflow</h2>
+    <p> What if we place more items than the initial line could handle, what would happen? using flexbox in a case like this would demand that you adopt the "flex-wrap" feature to take care of this in the case of grid however when items ae more than the initial line could handle they are automatically moved to the next line and placed within the avaliable grid space (grid space implies that all items are placed within a 2D area so if one area is filled up move to the next avaliabe 2D space flexbox will fill up every available space )</p>
+
+    <div class="grid-container">
+        <div class="grid-item">Grid Item 1</div>
+        <div class="grid-item">Grid Item 2</div>
+        <div class="grid-item">Grid Item 3</div>
+        <div class="grid-item">Grid Item 4</div>
+        <div class="grid-item">Grid Item 5</div>
+        <div class="grid-item">Grid Item 6</div>
+        <div class="grid-item">Grid Item 7</div>
+    </div>
+<h2>Grid span</h2>
+<p>so flexbox has the flex wrap feature what about grid does it also have something extra?, well yes it does, with Grid ther's the span feature. Now what span does is allow you to specify how much 2D area you want a paticular item to fill for example </p>
+
+    <div class="grid-container-span">
+        <div class="grid-item-span">Grid Item 1</div>
+        <div class="grid-item-span grid-item-span-row">Grid span by row</div>
+        <div class="grid-item-span">Grid Item 3</div>
+        <div class="grid-item-span grid-item-span-both">Grid span by row and column</div>
+        <div class="grid-item-span">Grid Item 5</div>
+    </div>
+
+    <div class="grid-container-span">
+        <div class="grid-item-span grid-item-span-column">Grid span by column</div>
+        <div class="grid-item-span">Grid span by row</div>
+        <div class="grid-item-span">Grid Item 3</div>
+        <div class="grid-item-span">Grid Item 4</div>
+        <div class="grid-item-span">Grid Item 5</div>
+    </div>
+
+    <p> As you can see item 2 bow occupies two rows worth of space. You also have the freedom of specifying for column as well or even both</p>
+
+</body>
+</html>
